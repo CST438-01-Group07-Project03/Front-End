@@ -1,0 +1,49 @@
+.groups-page { flex: 1; padding: 2rem; max-width: 900px; margin: 0 auto; width: 100%; }
+
+.groups-header { display: flex; align-items: center; gap: 12px; margin-bottom: 1.5rem; }
+.groups-header h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 800; color: var(--dark); }
+.groups-badge { background: var(--tertiary); color: var(--white-soft); font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 50px; }
+
+.create-group { display: flex; gap: 12px; margin-bottom: 2rem; }
+
+.group-input {
+  flex: 1; padding: 12px 18px; border-radius: 14px;
+  border: 1.5px solid var(--border-soft);
+  font-family: 'Nunito', sans-serif; font-size: 0.95rem; font-weight: 700;
+  outline: none; background: var(--white-soft); color: var(--text);
+  transition: border-color 0.2s;
+}
+.group-input:focus { border-color: var(--primary); }
+.group-input::placeholder { color: var(--text-muted); }
+
+.create-btn {
+  padding: 12px 22px; border-radius: 14px;
+  background: var(--primary); color: var(--white-soft);
+  border: none; font-family: 'Nunito', sans-serif;
+  font-size: 0.93rem; font-weight: 800;
+  cursor: pointer; transition: all 0.2s; white-space: nowrap;
+}
+.create-btn:hover:not(:disabled) { background: var(--tertiary); transform: translateY(-1px); }
+.create-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.groups-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 1.25rem; }
+
+.group-card {
+  background: var(--white-soft); border-radius: 22px; padding: 1.5rem;
+  text-align: center; border: 1.5px solid var(--border-soft);
+  box-shadow: var(--shadow); transition: all 0.2s; cursor: pointer;
+}
+.group-card:hover { transform: translateY(-4px); border-color: var(--primary); }
+
+.group-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+.group-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 800; color: var(--dark); margin-bottom: 0.4rem; }
+.group-members { font-size: 0.82rem; color: var(--text-muted); font-weight: 700; }
+
+.groups-empty { text-align: center; margin-top: 6rem; }
+.groups-empty span { font-size: 4rem; display: block; margin-bottom: 1rem; }
+.groups-empty h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-bottom: 0.5rem; }
+.groups-empty p { color: var(--text-muted); font-weight: 600; }
+
+.groups-loading { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 8rem; }
+.groups-loading span { font-size: 4rem; animation: pulse 1s infinite; }
+.groups-loading p { font-weight: 700; color: var(--text-muted); }

@@ -1,0 +1,46 @@
+.fav-page { flex: 1; padding: 2rem; max-width: 900px; margin: 0 auto; width: 100%; }
+
+.fav-header { display: flex; align-items: center; gap: 12px; margin-bottom: 2rem; }
+.fav-header h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 800; color: var(--dark); }
+.fav-badge { background: var(--danger); color: var(--white-soft); font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 50px; }
+
+.fav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 1.25rem; }
+
+.fav-card {
+  border-radius: 22px; padding: 1.5rem;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  position: relative; transition: transform 0.2s;
+  border: 1.5px solid var(--border-soft); box-shadow: var(--shadow);
+}
+.fav-card:hover { transform: translateY(-4px); }
+
+.fav-remove {
+  position: absolute; top: 10px; right: 10px;
+  background: rgba(255,255,255,0.75); border: none; border-radius: 50%;
+  width: 26px; height: 26px; font-size: 0.7rem; cursor: pointer;
+  color: var(--text-muted); transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center; font-weight: 900;
+}
+.fav-remove:hover { background: var(--danger); color: var(--white-soft); }
+
+.fav-emoji { font-size: 3rem; margin-bottom: 0.75rem; }
+
+.fav-type {
+  display: inline-block; background: rgba(179,90,43,0.1); color: var(--primary);
+  font-size: 0.68rem; font-weight: 800; padding: 3px 10px;
+  border-radius: 50px; text-transform: uppercase; letter-spacing: 1px;
+  margin-bottom: 0.5rem; border: 1px solid var(--border-soft);
+}
+
+.fav-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 800; color: var(--dark); margin-bottom: 0.4rem; }
+.fav-desc { font-size: 0.8rem; color: var(--text-muted); font-weight: 600; line-height: 1.4; margin-bottom: 0.75rem; }
+.fav-date { font-size: 0.72rem; color: var(--neutral); font-weight: 700; }
+
+.fav-empty { text-align: center; margin-top: 6rem; }
+.fav-empty span { font-size: 4rem; display: block; margin-bottom: 1rem; }
+.fav-empty h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-bottom: 0.5rem; }
+.fav-empty p { color: var(--text-muted); font-weight: 600; }
+
+.fav-loading { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 8rem; }
+.fav-loading span { font-size: 4rem; animation: pulse 1s infinite; }
+.fav-loading p { font-weight: 700; color: var(--text-muted); }
