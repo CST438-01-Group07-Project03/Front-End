@@ -5,7 +5,7 @@ import "./Swipe.css";
 
 export default function Swipe() {
   const { user } = useAuth();
-  const userId = Number(user?.sub ?? user?.id ?? 1);
+  const userId = user?.id ?? 0;
   const { feed, loading, empty, swipe } = useFeed(userId);
 
   const handleButton = (liked: boolean) => {

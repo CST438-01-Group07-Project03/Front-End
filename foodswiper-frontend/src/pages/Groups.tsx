@@ -5,7 +5,7 @@ import "./Groups.css";
 
 export default function Groups() {
   const { user } = useAuth();
-  const userId = Number(user?.sub ?? user?.id ?? 1);
+  const userId = user?.id ?? 0;
   const { groups, loading, create } = useGroups(userId);
   const [newName, setNewName] = useState("");
   const [creating, setCreating] = useState(false);

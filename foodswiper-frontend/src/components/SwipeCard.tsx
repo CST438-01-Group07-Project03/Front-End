@@ -27,8 +27,14 @@ interface Props {
 
 export default function SwipeCard({ item, index = 0, onSwipe }: Props) {
   const [drag, setDrag] = useState({ x: 0, y: 0, dragging: false });
+  const [imgIndex, setImgIndex] = useState(0);
   const startPos = useRef<{ x: number; y: number } | null>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+
+  const allImages = [
+    ...(item.imageUrl ? [item.imageUrl] : []),
+    ...(item.photos?.map(p => p.url) ?? []),
+  ].filter((url, i, arr) => arr.indexOf(url) === i); // dedupe
 
   const bgColor = BG_COLORS[item.id % BG_COLORS.length];
   const emoji = getEmoji(item.name);
@@ -51,7 +57,11 @@ export default function SwipeCard({ item, index = 0, onSwipe }: Props) {
   };
 
   const handlePointerUp = () => {
-    if (direction) onSwipe(item, direction === "right");
+    if (direction) {
+      onSwipe(item, direction === "right");
+    } else if (!drag.dragging || (Math.abs(drag.x) < 5 && Math.abs(drag.y) < 5)) {
+      if (allImages.length > 1) setImgIndex(i => (i + 1) % allImages.length);
+    }
     setDrag({ x: 0, y: 0, dragging: false });
     startPos.current = null;
   };
@@ -72,7 +82,21 @@ export default function SwipeCard({ item, index = 0, onSwipe }: Props) {
       {direction === "right" && <div className="swipe-label like">LIKE ✓</div>}
       {direction === "left" && <div className="swipe-label nope">NOPE ✕</div>}
 
-      <div className="card-emoji">{emoji}</div>
+      {allImages.length > 0
+        ? (
+          <div className="card-img-wrap">
+            <img className="card-img" src={allImages[imgIndex]} alt={item.name} />
+            {allImages.length > 1 && (
+              <div className="card-img-dots">
+                {allImages.map((_, i) => (
+                  <span key={i} className={`dot${i === imgIndex ? " active" : ""}`} />
+                ))}
+              </div>
+            )}
+          </div>
+        )
+        : <div className="card-emoji">{emoji}</div>
+      }
       <div className="card-info">
         <span className="card-type-badge">{item.type || "Food"}</span>
         <h2 className="card-name">{item.name}</h2>
