@@ -11,11 +11,18 @@ export interface User {
   group_ids?: number[];
 }
 
+export interface Photo {
+  id: number;
+  url: string;
+}
+
 export interface Item {
   id: number;
   name: string;
   description?: string;
   type?: string;
+  imageUrl?: string;
+  photos?: Photo[];
 }
 
 export interface SwipeHistory {

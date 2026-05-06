@@ -18,7 +18,7 @@ function getEmoji(name: string = ""): string {
 
 export default function Favorites() {
   const { user } = useAuth();
-  const userId = Number(user?.sub ?? user?.id ?? 1);
+  const userId = user?.id ?? 0;
   const { likes, loading, remove } = useFavorites(userId);
 
   if (loading) {
@@ -50,7 +50,10 @@ export default function Favorites() {
             return (
               <div key={swipe.id} className="fav-card" style={{ background: BG_COLORS[item.id % BG_COLORS.length] }}>
                 <button className="fav-remove" onClick={() => remove(swipe.id)} title="Remove">✕</button>
-                <div className="fav-emoji">{getEmoji(item.name)}</div>
+                {item.imageUrl
+                  ? <img className="fav-img" src={item.imageUrl} alt={item.name} />
+                  : <div className="fav-emoji">{getEmoji(item.name)}</div>
+                }
                 <span className="fav-type">{item.type || "Food"}</span>
                 <h3 className="fav-name">{item.name}</h3>
                 <p className="fav-desc">{item.description || "No description."}</p>
