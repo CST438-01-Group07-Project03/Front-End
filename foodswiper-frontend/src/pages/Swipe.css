@@ -1,0 +1,42 @@
+.swipe-page {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; padding: 2rem 1rem; gap: 1.5rem;
+}
+
+.swipe-header { display: flex; align-items: center; gap: 12px; }
+.swipe-header h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 800; color: var(--dark); }
+.feed-badge { background: var(--primary); color: var(--white-soft); font-size: 0.75rem; font-weight: 800; padding: 4px 12px; border-radius: 50px; }
+
+.card-stack-wrapper {
+  position: relative; width: 340px; height: 480px;
+  display: flex; align-items: center; justify-content: center;
+}
+.card-stack { position: relative; width: 340px; height: 480px; }
+.card-stack .swipe-card:nth-child(1) { transform: rotate(-4deg) scale(0.94); opacity: 0.55; }
+.card-stack .swipe-card:nth-child(2) { transform: rotate(2deg) scale(0.97); opacity: 0.8; }
+.card-stack .swipe-card:nth-child(3) { transform: rotate(0deg) scale(1); }
+
+.empty-state { text-align: center; }
+.empty-state span { font-size: 4rem; display: block; margin-bottom: 1rem; }
+.empty-state h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 800; color: var(--dark); margin-bottom: 0.5rem; }
+.empty-state p { color: var(--text-muted); font-weight: 600; }
+
+.swipe-actions { display: flex; gap: 2rem; align-items: center; }
+
+.action-btn {
+  width: 68px; height: 68px; border-radius: 50%; border: 1.5px solid var(--border-soft);
+  font-size: 1.7rem; cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--white-soft); box-shadow: var(--shadow);
+}
+.action-btn:hover:not(:disabled) { transform: scale(1.1); }
+.action-btn:active:not(:disabled) { transform: scale(0.95); }
+.action-btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.action-btn.pass { box-shadow: 0 4px 16px rgba(182,67,60,0.15); }
+.action-btn.like { box-shadow: 0 4px 16px rgba(122,138,74,0.15); }
+
+.swipe-hint { font-size: 0.78rem; color: var(--text-muted); font-weight: 700; }
+
+.swipe-loading { display: flex; flex-direction: column; align-items: center; gap: 1rem; margin-top: 8rem; }
+.swipe-loading span { font-size: 4rem; animation: pulse 1s infinite; }
+.swipe-loading p { font-weight: 700; color: var(--text-muted); }

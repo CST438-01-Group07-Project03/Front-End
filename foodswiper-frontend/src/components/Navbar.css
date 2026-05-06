@@ -1,0 +1,41 @@
+.navbar {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem; height: 64px;
+  background: var(--white-soft);
+  border-bottom: 1.5px solid var(--border-soft);
+}
+
+.navbar-logo {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem; font-weight: 800; color: var(--primary);
+}
+
+.navbar-links { display: flex; gap: 4px; }
+
+.nav-link {
+  display: flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border-radius: 50px;
+  text-decoration: none; font-weight: 800; font-size: 0.875rem;
+  color: var(--text-muted); transition: all 0.2s;
+}
+.nav-link:hover { background: var(--surface-soft); color: var(--primary); }
+.nav-link.active { background: var(--primary); color: var(--white-soft); }
+.nav-icon { font-size: 14px; }
+
+.navbar-user { display: flex; align-items: center; gap: 10px; }
+
+.user-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  object-fit: cover; border: 2px solid var(--primary);
+}
+
+.user-avatar-placeholder {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: var(--primary); color: var(--white-soft);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 900; font-size: 0.875rem;
+}
+
+.user-name { font-weight: 800; font-size: 0.875rem; color: var(--text); }

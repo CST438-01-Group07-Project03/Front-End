@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary: #B35A2B;
+  --secondary: #F59E0B;
+  --tertiary: #8C4A32;
+  --neutral: #807471;
+  --background: #F9F5F0;
+  --surface: #F9F5F0;
+  --surface-soft: #F6E7E2;
+  --border-soft: #D8C0B7;
+  --text: #4A342E;
+  --text-muted: #8D746B;
+  --white-soft: #F8F3F1;
+  --danger: #B6433C;
+  --warning: #E8C66A;
+  --success: #7A8A4A;
+  --dark: #1E120F;
+  --radius: 20px;
+  --radius-sm: 12px;
+  --shadow: 0 4px 24px rgba(30,18,15,0.10);
+  --shadow-lg: 0 12px 48px rgba(30,18,15,0.14);
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--background);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.8; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
