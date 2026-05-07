@@ -15,10 +15,18 @@ export function useGroups(userId: number) {
 
   const create = async (name: string) => {
     const res = await createGroup(name);
-    await addMember(res.data.id, userId);
-    setGroups((prev) => [...prev, res.data]);
+    const group = res.data;
+    if (userId) await addMember(group.id, userId);
+    setGroups((prev) => [...prev, group]);
+    return group;
+  };
+
+  const join = async (groupId: number) => {
+    if (!userId) return;
+    const res = await addMember(groupId, userId);
+    setGroups((prev) => prev.map((g) => (g.id === groupId ? res.data : g)));
     return res.data;
   };
 
-  return { groups, loading, create };
+  return { groups, loading, create, join };
 }

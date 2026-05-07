@@ -37,7 +37,23 @@
 
 .group-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
 .group-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 800; color: var(--dark); margin-bottom: 0.4rem; }
-.group-members { font-size: 0.82rem; color: var(--text-muted); font-weight: 700; }
+.group-members { font-size: 0.82rem; color: var(--text-muted); font-weight: 700; margin-bottom: 0.75rem; }
+
+.join-btn {
+  margin-top: 0.5rem; padding: 8px 20px; border-radius: 12px;
+  background: var(--primary); color: var(--white-soft);
+  border: none; font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem; font-weight: 800;
+  cursor: pointer; transition: all 0.2s;
+}
+.join-btn:hover:not(:disabled) { background: var(--tertiary); transform: translateY(-1px); }
+.join-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.member-badge {
+  display: inline-block; margin-top: 0.5rem;
+  font-size: 0.8rem; font-weight: 800;
+  color: var(--primary);
+}
 
 .groups-empty { text-align: center; margin-top: 6rem; }
 .groups-empty span { font-size: 4rem; display: block; margin-bottom: 1rem; }
