@@ -24,7 +24,18 @@
 .nav-link.active { background: var(--primary); color: var(--white-soft); }
 .nav-icon { font-size: 14px; }
 
+.navbar-user-menu {
+  position: relative;
+}
+
 .navbar-user { display: flex; align-items: center; gap: 10px; }
+
+.navbar-user-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
 
 .user-avatar {
   width: 36px; height: 36px; border-radius: 50%;
@@ -39,3 +50,38 @@
 }
 
 .user-name { font-weight: 800; font-size: 0.875rem; color: var(--text); }
+
+.user-dropdown {
+  position: absolute;
+  top: 48px;
+  right: 0;
+  min-width: 180px;
+  background: var(--white-soft);
+  border: 1.5px solid var(--border-soft);
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.user-dropdown-item {
+  background: transparent;
+  border: none;
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.user-dropdown-item:hover {
+  background: var(--surface-soft);
+}
+
+.user-dropdown-item.danger {
+  color: #b23a2b;
+}

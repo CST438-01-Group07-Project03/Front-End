@@ -7,17 +7,37 @@ interface AuthContextType {
   user: User | null;
   loading: boolean;
   setUser: (user: User | null) => void;
+  refreshUser: () => Promise<void>;
+  logout: () => void;
 }
 
 const AuthContext = createContext<AuthContextType>({
   user: null,
   loading: true,
   setUser: () => {},
+  refreshUser: async () => {},
+  logout: () => {},
 });
+
+const API_BASE_URL = "http://localhost:8080";
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+
+  const refreshUser = async () => {
+    try {
+      const res = await getMe();
+      setUser(res.data);
+    } catch {
+      setUser(null);
+    }
+  };
+
+  const logout = () => {
+    setUser(null);
+    window.location.href = `${API_BASE_URL}/logout`;
+  };
 
   useEffect(() => {
     getMe()
@@ -27,7 +47,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, loading, setUser }}>
+    <AuthContext.Provider value={{ user, loading, setUser, refreshUser, logout }}>
       {children}
     </AuthContext.Provider>
   );

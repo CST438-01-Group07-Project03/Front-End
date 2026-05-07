@@ -7,6 +7,10 @@ export interface User {
   picture?: string;
   avatar_url?: string;
   username?: string;
+  isAdmin?: boolean;
+  provider?: string;
+  providerId?: string;
+  avatarUrl?: string;
   favorites?: Item[];
   group_ids?: number[];
 }

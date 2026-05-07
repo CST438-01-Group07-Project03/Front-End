@@ -1,7 +1,7 @@
 import { useAuth } from "../providers/AuthProvider";
 import { useFeed } from "../hooks/useFeed";
 import SwipeCard from "../components/SwipeCard";
-import "./Swipe.css";
+import './Swipe.css';
 
 export default function Swipe() {
   const { user } = useAuth();
