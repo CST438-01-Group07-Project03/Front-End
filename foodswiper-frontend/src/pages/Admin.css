@@ -1,0 +1,141 @@
+.admin-page {
+  min-height: calc(100vh - 64px);
+  background: var(--background);
+  padding: 2rem;
+}
+
+.admin-container {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.admin-header {
+  margin-bottom: 1.5rem;
+}
+
+.admin-header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+
+.admin-header p {
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.admin-form {
+  background: var(--white-soft);
+  border: 1.5px solid var(--border-soft);
+  border-radius: 24px;
+  box-shadow: var(--shadow-lg);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.admin-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.admin-form label,
+.admin-description {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.admin-form span,
+.admin-description span {
+  font-weight: 800;
+  color: var(--text);
+}
+
+.admin-form input,
+.admin-description textarea {
+  border: 1.5px solid var(--border-soft);
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: var(--white-soft);
+}
+
+.admin-submit {
+  margin-top: 1rem;
+  border: none;
+  border-radius: 14px;
+  background: var(--primary);
+  color: var(--white-soft);
+  padding: 12px 18px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.admin-list h2 {
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.admin-empty {
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.admin-cards {
+  display: grid;
+  gap: 1rem;
+}
+
+.admin-card {
+  background: var(--white-soft);
+  border: 1.5px solid var(--border-soft);
+  border-radius: 20px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.admin-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+
+.admin-card-top h3 {
+  margin: 0;
+}
+
+.admin-card-top span {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.admin-card p {
+  margin: 0 0 0.4rem 0;
+  color: var(--text);
+}
+
+.admin-card small {
+  color: var(--text-muted);
+  word-break: break-all;
+}
+
+.admin-delete {
+  border: none;
+  border-radius: 12px;
+  background: #f9e3de;
+  color: #b23a2b;
+  padding: 10px 14px;
+  font-weight: 800;
+  cursor: pointer;
+}

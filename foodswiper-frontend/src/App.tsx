@@ -5,11 +5,20 @@ import Login from "./pages/Login";
 import Swipe from "./pages/Swipe";
 import Favorites from "./pages/Favorites";
 import Groups from "./pages/Groups";
+import Admin from "./pages/Admin";
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const { user, loading } = useAuth();
   if (loading) return <div className="loading-screen">🍔</div>;
   if (!user) return <Navigate to="/login" replace />;
+  return <>{children}</>;
+}
+
+function AdminRoute({ children }: { children: React.ReactNode }) {
+  const { user, loading } = useAuth();
+  if (loading) return <div className="loading-screen">🍔</div>;
+  if (!user) return <Navigate to="/login" replace />;
+  if ((user as any)?.isAdmin !== true) return <Navigate to="/" replace />;
   return <>{children}</>;
 }
 
@@ -24,6 +33,7 @@ function AppShell() {
         <Route path="/favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} />
         <Route path="/groups" element={<ProtectedRoute><Groups /></ProtectedRoute>} />
         <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="/admin" element={<AdminRoute><Admin /></AdminRoute>} />
       </Routes>
     </>
   );
